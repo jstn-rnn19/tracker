@@ -13,33 +13,31 @@
                 let valid = form.checkValidity();
                 if(passwrd.value !== "" && confirmPasswrd.value === "") {
                     confirmPasswrd.classList.add('is-invalid');    
-                    console.log('1');
+                    
                     feedback.style.display = 'none';
-                    feedback2.textContent = 'confirm password is empty';
+                    feedback2.textContent = 'confirm password is required';
                     valid = false;
                 }else if(passwrd.value === "" && confirmPasswrd.value !== "") {
                     passwrd.classList.add('is-invalid');
-                    console.log('2');
+                    
 
                     feedback2.style.display = 'none';
                     feedback.style.display = 'block';
-                    feedback.textContent = 'password is empty';
+                    feedback.textContent = 'password is required';
                     valid = false;
                 }else if (passwrd.value !== confirmPasswrd.value) {
-                    console.log('3');
+                    
                     feedback.style.display = 'none';
                     feedback2.style.display = 'block';
                     feedback2.textContent = 'there is a typo between password or confirm password';
                     // add invalid styling
                      valid = false;
-                }else {
-                    console.log('4');
                 }
-                if (!email.value.includes('@') && email.value !== '') {
-                    emailFeedback.textContent = 'it should be valid email address';
+                if (email.value === '') {
+                    emailFeedback.textContent = 'Email is required';
                     valid = false;
-                }else if (email.value === '') {
-                    emailFeedback.textContent = 'enter email address';
+                } else if (!email.value.includes('@')) {
+                    emailFeedback.textContent = 'It should be a valid email address';
                     valid = false;
                 }
                 
